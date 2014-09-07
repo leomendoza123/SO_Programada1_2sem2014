@@ -11,7 +11,7 @@
     #define PORT 80
     #define USERAGENT "HTMLGET 1.0"
 
-    int GetHtml(char *argv)
+    char * GetHtml(char *argv)
     {
       struct sockaddr_in *remote;
       int sock;
@@ -65,6 +65,7 @@
       memset(buf, 0, sizeof(buf));
       int htmlstart = 0;
       char * htmlcontent;
+      char * totalContent;
       while((tmpres = recv(sock, buf, BUFSIZ, 0)) > 0){
         if(htmlstart == 0)
         {
@@ -81,6 +82,7 @@
           htmlcontent = buf;
         }
         if(htmlstart){
+          //totalContent += htmlcontent;
           fprintf(stdout, htmlcontent);
         }
 
@@ -90,18 +92,12 @@
       {
         perror("Error receiving data");
       }
+
       free(get);
       free(remote);
       free(ip);
       close(sock);
-      return 0;
-    }
-
-    void usage()
-    {
-      fprintf(stderr, "USAGE: htmlget host [page]\n\
-    \thost: the website hostname. ex: coding.debuntu.org\n\
-    \tpage: the page to retrieve. ex: index.html, default: /\n");
+      return totalContent;
     }
 
 
