@@ -3,5 +3,7 @@
     #include "socket.h"
     int main(int argc, char **argv)
     {
-        char * html = GetHtml (argv[1]);
+        char * html = GetHtml (argv[1], "/");
+        fprintf(stdout, html);
+
     }

@@ -7,11 +7,12 @@
     #include "socket.h"
 
     #define HOST "coding.debuntu.org"
-    #define PAGE "/"
     #define PORT 80
     #define USERAGENT "HTMLGET 1.0"
+ char* concat(char *s1, char *s2);
 
-    char * GetHtml(char *argv)
+    char * GetHtml(char *argv, char *PAGE)
+
     {
       struct sockaddr_in *remote;
       int sock;
@@ -65,7 +66,7 @@
       memset(buf, 0, sizeof(buf));
       int htmlstart = 0;
       char * htmlcontent;
-      char * totalContent;
+      char * totalContent =" ";
       while((tmpres = recv(sock, buf, BUFSIZ, 0)) > 0){
         if(htmlstart == 0)
         {
@@ -82,8 +83,7 @@
           htmlcontent = buf;
         }
         if(htmlstart){
-          //totalContent += htmlcontent;
-          fprintf(stdout, htmlcontent);
+        totalContent = concat (totalContent, htmlcontent );
         }
 
         memset(buf, 0, tmpres);
@@ -145,3 +145,15 @@
       sprintf(query, tpl, getpage, host, USERAGENT);
       return query;
     }
+
+    char* concat(char *s1, char *s2)
+{
+     char *result  = malloc(sizeof(char) * (strlen(s1) + strlen(s2)));
+    //in real code you would check for errors in malloc here
+    char *s2Temp = malloc(sizeof(char) * ( strlen(s2)));
+
+    strcpy(result, s1);
+    strcpy(s2Temp, s2);
+    strcat(result, s2Temp);
+    return result;
+}
