@@ -4,17 +4,14 @@
     #include <stdlib.h>
     #include <netdb.h>
     #include <string.h>
-    int create_tcp_socket();
-    char *get_ip(char *host);
-    char *build_get_query(char *host, char *page);
-    void usage();
+    #include "socket.h"
 
     #define HOST "coding.debuntu.org"
     #define PAGE "/"
     #define PORT 80
     #define USERAGENT "HTMLGET 1.0"
 
-    int GetHtml(int argc, char **argv)
+    int GetHtml(char *argv)
     {
       struct sockaddr_in *remote;
       int sock;
@@ -25,16 +22,10 @@
       char *host;
       char *page;
 
-      if(argc == 1){
-        usage();
-        exit(2);
-      }
-      host = argv[1];
-      if(argc > 2){
-        page = argv[2];
-      }else{
-        page = PAGE;
-      }
+
+      host = argv;
+      page = PAGE;
+
       sock = create_tcp_socket();
       ip = get_ip(host);
       fprintf(stderr, "IP is %s\n", ip);
