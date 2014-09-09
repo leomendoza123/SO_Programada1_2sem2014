@@ -11,9 +11,11 @@
     #define USERAGENT "HTMLGET 1.0"
  char* concat(char *s1, char *s2);
 
-    char * GetHtml(char *argv, char *PAGE)
+    char * socket_getHtml(char *argv, char *PAGE)
 
     {
+
+
       struct sockaddr_in *remote;
       int sock;
       int tmpres;
@@ -26,6 +28,7 @@
 
       host = argv;
       page = PAGE;
+
 
       sock = create_tcp_socket();
       ip = get_ip(host);
@@ -66,24 +69,22 @@
       memset(buf, 0, sizeof(buf));
       int htmlstart = 0;
       char * htmlcontent;
-      char * totalContent =" ";
+      char * totalContent;
       while((tmpres = recv(sock, buf, BUFSIZ, 0)) > 0){
         if(htmlstart == 0)
         {
-          /* Under certain conditions this will not work.
-          * If the \r\n\r\n part is splitted into two messages
-          * it will fail to detect the beginning of HTML content
-          */
+
           htmlcontent = strstr(buf, "\r\n\r\n");
           if(htmlcontent != NULL){
             htmlstart = 1;
             htmlcontent += 4;
           }
-        }else{
+        }
+        else{
           htmlcontent = buf;
         }
         if(htmlstart){
-        totalContent = concat (totalContent, htmlcontent );
+            totalContent = concat (totalContent, htmlcontent );
         }
 
         memset(buf, 0, tmpres);
@@ -98,6 +99,7 @@
       free(ip);
       close(sock);
       return totalContent;
+
     }
 
 
@@ -146,14 +148,20 @@
       return query;
     }
 
+
+
+
     char* concat(char *s1, char *s2)
 {
-     char *result  = malloc(sizeof(char) * (strlen(s1) + strlen(s2)));
-    //in real code you would check for errors in malloc here
-    char *s2Temp = malloc(sizeof(char) * ( strlen(s2)));
-
-    strcpy(result, s1);
-    strcpy(s2Temp, s2);
-    strcat(result, s2Temp);
-    return result;
+    // Define el nuevo tamaño para guardar los 2 pedasos del espacio en memoria
+    int nuevoTamano = 0;
+    if (s1){nuevoTamano+= strlen(s1); }
+    if (s2){nuevoTamano+= strlen(s2); }
+    // Solicita el nuevo pedaso de memoria
+    char * resultado = calloc(nuevoTamano + 1, sizeof(char));
+    // Une los dos pedasos de memoria en el nuevo campo solicitado
+    if (s1){resultado = strcat(resultado, s1);}
+    resultado = strcat(resultado, s2);
+    //liberar memoria de los s1
+    return resultado;
 }

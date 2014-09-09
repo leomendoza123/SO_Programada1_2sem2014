@@ -1,0 +1,51 @@
+# depslib dependency file v1.0
+1410297718 source:/home/leoanardo/Desktop/downloader/main.c
+	<stdio.h>
+	<string.h>
+	<pthread.h>
+	"socket.h"
+	"manejadorArchivos.h"
+	"manejadorPool.h"
+
+1410296312 source:/home/leoanardo/Desktop/downloader/socket.c
+	<stdio.h>
+	<sys/socket.h>
+	<arpa/inet.h>
+	<stdlib.h>
+	<netdb.h>
+	<string.h>
+	"socket.h"
+
+1410128169 /home/leoanardo/Desktop/downloader/socket.h
+
+1410052105 source:/home/leoanardo/Desktop/downloader/htmlRequest.c
+
+1410142434 /home/leoanardo/Desktop/downloader/manejadorArchivos.h
+
+1410143732 source:/home/leoanardo/Desktop/downloader/manejadorArchivos.c
+	<stdio.h>
+	<string.h>
+	<pthread.h>
+	"socket.h"
+	"manejadorArchivos.h"
+	"manejadorCache.h"
+
+1410125713 /home/leoanardo/Desktop/downloader/manejadorPool.h
+
+1410297448 source:/home/leoanardo/Desktop/downloader/manejadorPool.c
+	<stdio.h>
+	<string.h>
+	<pthread.h>
+	"socket.h"
+	"manejadorArchivos.h"
+	"manejadorCache.h"
+
+1410142462 /home/leoanardo/Desktop/downloader/manejadorCache.h
+
+1410297807 source:/home/leoanardo/Desktop/downloader/manejadorCache.c
+	<stdio.h>
+	<string.h>
+	<pthread.h>
+
+1410297319 source:/home/leoanardo/Desktop/downloader/strings.c
+
