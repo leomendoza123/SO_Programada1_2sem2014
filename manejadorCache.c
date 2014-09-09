@@ -1,4 +1,10 @@
 
+
+// TODO:
+
+// Manejar los cache en un solo struct
+
+
     #include <stdio.h>
     #include <string.h>
     #include <pthread.h>
@@ -11,6 +17,8 @@
     int escrbirArchivo(char * contenido, char *url);
 
     char *cache [TAMANOCACHE];
+    char *cacheNombres [TAMANOCACHE];
+
     int cacheTop = 0;
 
     pthread_mutex_t mutexCache = PTHREAD_MUTEX_INITIALIZER;
@@ -19,14 +27,26 @@
     int cache_add (char *archivo, char *nombre)
 
     {
-
-            char * temp = calloc(strlen(archivo), sizeof(char));
-            temp = strcat(temp,archivo );
-
+            // Bloque el cache, toma la posicin y lo desbloque
             pthread_mutex_lock( &mutexCache );
-            cache[cacheTop] = temp;
-            cacheTop++;
+                int cacheTopActual = cacheTop;
+                cacheTop++;
             pthread_mutex_unlock( &mutexCache );
+
+            // Copia el contenido del archivo
+            char * archivotemp = calloc(strlen(archivo), sizeof(char));
+            archivotemp = strcat(archivotemp,archivo );
+
+            //Copia el nombre del archivo
+            char * nombretemp = calloc(strlen(nombre), sizeof(char));
+            nombretemp = strcat(nombretemp,nombre );
+
+
+            // Guarde el contenido en cache
+            cache[cacheTopActual] = archivotemp;
+            // Guarde el nombre en cacheNombre
+            cacheNombres[cacheTopActual] = nombretemp;
+
 
 
 
@@ -38,6 +58,14 @@
     {
 
             return cache[index];
+
+
+    }
+    char * cacheNombres_get (int index)
+
+    {
+
+            return cacheNombres[index];
 
 
     }

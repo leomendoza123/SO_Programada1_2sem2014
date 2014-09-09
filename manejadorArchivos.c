@@ -1,4 +1,4 @@
-    #define CANTIDAD_HILOS_ESCRITORES 1
+    #define CANTIDAD_HILOS_ESCRITORES 5
     #define CANTIDAD_ESPACIONS_POOL 100
 
     #include <stdio.h>
@@ -16,7 +16,7 @@
     // Manejo de hilos de escritura
     pthread_t thread_id [CANTIDAD_HILOS_ESCRITORES];
     pthread_mutex_t mutexEscritura = PTHREAD_MUTEX_INITIALIZER;
-    int counterEscritura;
+    int counterCache;
 
 
     int archivos_Inicia ()
@@ -53,23 +53,20 @@
 
 
             /// Solicita archivo por escribir
-            if (cache_size()>counterEscritura){
 
-                char * archivo = cache_get(counterEscritura);
+            pthread_mutex_lock( &mutexEscritura );
+            if (cache_size()>counterCache){
 
 
-                    printf("----- Hilo numero: %ld \n", pthread_self());
-                    printf("----- toma elemento %d de pool, de poolTop %d\n", counterEscritura, cache_size());
-
-                pthread_mutex_lock( &mutexEscritura );
-
-                counterEscritura++;
-
+                printf("----- Hilo numero: %ld \n", pthread_self());
+                printf("----- toma elemento %d de %d en CACHE\n", counterCache, cache_size());
+                char * archivo = cache_get(counterCache);
+                char * pagina =
+                counterCache++;
                 pthread_mutex_unlock( &mutexEscritura );
 
-
                  /// Guarda el archivo
-                printf(archivo);
+              //  escrbirArchivo(archivo, );
 
 
 
@@ -81,7 +78,7 @@
 
 
 
-             sleep (2);
+             sleep (1);
             }
 
 
@@ -91,9 +88,13 @@
 
 int escrbirArchivo(char * contenido, char *url)
     {
-
-
-
+/*
+          FILE * pFile;
+          pFile = fopen ("myfile.bin", "wb");
+          fwrite (buffer , sizeof(char), sizeof(contenido), pFile);
+          fclose (pFile);
+          return 0;
+*/
 
    }
 

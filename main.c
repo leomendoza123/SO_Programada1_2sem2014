@@ -22,6 +22,45 @@
               pool_add ("acme.com") ;
        pool_add ("kli.org") ;
        pool_add ("home.mcom.com") ;
+            pool_add ("acme.com") ;
+       pool_add ("kli.org") ;
+       pool_add ("home.mcom.com") ;
+              pool_add ("acme.com") ;
+       pool_add ("kli.org") ;
+       pool_add ("home.mcom.com") ;
+              pool_add ("acme.com") ;
+       pool_add ("kli.org") ;
+       pool_add ("home.mcom.com") ;
+              pool_add ("acme.com") ;
+       pool_add ("kli.org") ;
+       pool_add ("home.mcom.com") ;
+
+     pool_add ("acme.com") ;
+       pool_add ("kli.org") ;
+       pool_add ("home.mcom.com") ;
+              pool_add ("acme.com") ;
+       pool_add ("kli.org") ;
+       pool_add ("home.mcom.com") ;
+              pool_add ("acme.com") ;
+       pool_add ("kli.org") ;
+       pool_add ("home.mcom.com") ;
+              pool_add ("acme.com") ;
+       pool_add ("kli.org") ;
+       pool_add ("home.mcom.com") ;
+
+     pool_add ("acme.com") ;
+       pool_add ("kli.org") ;
+       pool_add ("home.mcom.com") ;
+              pool_add ("acme.com") ;
+       pool_add ("kli.org") ;
+       pool_add ("home.mcom.com") ;
+              pool_add ("acme.com") ;
+       pool_add ("kli.org") ;
+       pool_add ("home.mcom.com") ;
+              pool_add ("acme.com") ;
+       pool_add ("kli.org") ;
+       pool_add ("home.mcom.com") ;
+
 
        pool_Inicia ();
        sleep (10);
