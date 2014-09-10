@@ -6,7 +6,7 @@
     #include <pthread.h>
     #include "socket.h"
     #include "manejadorArchivos.h"
-    #include "manejadorCache.h"
+    #include "Cache.h"
 
 
     int archivos_Inicia();
@@ -34,7 +34,7 @@
 
     }
 
-    int pool_joinHilosEscritores(){
+    int archivos_joinHilos(){
 
 
             int j;
@@ -88,6 +88,8 @@
 
 int escrbirArchivo(char * contenido, char *url)
     {
+                               printf(">>>> Escribe en disco duro \n");
+
 /*
           FILE * pFile;
           pFile = fopen ("myfile.bin", "wb");

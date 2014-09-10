@@ -33,12 +33,14 @@
                 cacheTop++;
             pthread_mutex_unlock( &mutexCache );
 
-            // Copia el contenido del archivo
+            // aparta la memoria para elemento en cache
             char * archivotemp = calloc(strlen(archivo), sizeof(char));
+            char * nombretemp = calloc(strlen(nombre), sizeof(char));
+
+            // Copia el contenido del archivo
             archivotemp = strcat(archivotemp,archivo );
 
             //Copia el nombre del archivo
-            char * nombretemp = calloc(strlen(nombre), sizeof(char));
             nombretemp = strcat(nombretemp,nombre );
 
 
@@ -46,6 +48,7 @@
             cache[cacheTopActual] = archivotemp;
             // Guarde el nombre en cacheNombre
             cacheNombres[cacheTopActual] = nombretemp;
+
 
 
 

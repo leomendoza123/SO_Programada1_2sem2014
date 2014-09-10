@@ -1,4 +1,4 @@
-    #define CANTIDAD_HILOS_LECTORES 20
+    #define CANTIDAD_HILOS_LECTORES 50
     #define CANTIDAD_ESPACIONS_POOL 100
 
     #include <stdio.h>
@@ -6,18 +6,16 @@
     #include <pthread.h>
     #include "socket.h"
     #include "manejadorArchivos.h"
-    #include "manejadorCache.h"
+    #include "Cache.h"
 
 
     void *hiloGetWEB(void *);
-    int pool_add (char *url);
+    int conexiones_add (char *url);
 
     // Manejo de hilos de pool
     pthread_t thread_id [CANTIDAD_HILOS_LECTORES];
     pthread_mutex_t mutexPool = PTHREAD_MUTEX_INITIALIZER;
     pthread_mutex_t mutexCounter = PTHREAD_MUTEX_INITIALIZER;
-
-
 
 
     //Manejo de cache
@@ -28,7 +26,7 @@
     char * pool[CANTIDAD_ESPACIONS_POOL] ;
 
 
-    int pool_add (char *url){
+    int conexiones_add (char *url){
         pthread_mutex_lock( &mutexPool );
 
 
@@ -40,7 +38,7 @@
     }
 
 
-    int pool_Inicia ()
+    int conexiones_Inicia ()
     {
 
         /// Inicializa los hilos lectores
@@ -57,7 +55,7 @@
 
     }
 
-    int pool_joinHilosLectores(){
+    int conexiones_joinHilos(){
 
 
             int j;
@@ -72,24 +70,20 @@
         {
 
         while (1){
-            /// GUARDA LA ACTUAL POSICION DEL POOL
-
-            int poolCounterActual = -1;
-
+            /// GUARDA LA ACTUAL POSICION DEL POOL Y verifica si hay que revisarla
             pthread_mutex_lock( &mutexCounter );
-            printf("~~~~~ Hilo numero: %ld \n", pthread_self());
-            if (poolTop>poolCounter)
-                {
-                    poolCounterActual = poolCounter;
-                    poolCounter++;
+            int poolCounterActual= -1;
+            if (poolTop>poolCounter){
+                poolCounterActual= poolCounter;
+                poolCounter++;
+                printf("~~~~~Hilo: %ld Elemento %d de %d en POOL\n", pthread_self(), poolCounterActual, poolTop);
 
-                    printf("~~~~~ Elemento %d de %d en POOL\n", poolCounterActual, poolTop);
-
-                }
+            }
             else{
-                    printf("~~~~~ Pool vacio \n", pthread_self());
-                }
+                printf("~~~~~Hilo: %ld Pool vacio \n", pthread_self());
+            }
             pthread_mutex_unlock( &mutexCounter );
+
 
 
 
@@ -103,6 +97,7 @@
                                //free (html);
              }
 
+            /// DUERME EL HILO
              sleep (1);
 
             }

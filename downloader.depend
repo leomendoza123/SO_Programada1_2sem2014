@@ -1,11 +1,11 @@
 # depslib dependency file v1.0
-1410300413 source:/home/leoanardo/Desktop/downloader/main.c
+1410366044 source:/home/leoanardo/Desktop/downloader/main.c
 	<stdio.h>
 	<string.h>
 	<pthread.h>
 	"socket.h"
 	"manejadorArchivos.h"
-	"manejadorPool.h"
+	"manejadorConexiones.h"
 
 1410296312 source:/home/leoanardo/Desktop/downloader/socket.c
 	<stdio.h>
@@ -20,32 +20,54 @@
 
 1410052105 source:/home/leoanardo/Desktop/downloader/htmlRequest.c
 
-1410142434 /home/leoanardo/Desktop/downloader/manejadorArchivos.h
+1410366170 /home/leoanardo/Desktop/downloader/manejadorArchivos.h
 
-1410300275 source:/home/leoanardo/Desktop/downloader/manejadorArchivos.c
+1410366095 source:/home/leoanardo/Desktop/downloader/manejadorArchivos.c
 	<stdio.h>
 	<string.h>
 	<pthread.h>
 	"socket.h"
 	"manejadorArchivos.h"
-	"manejadorCache.h"
+	"Cache.h"
 
 1410125713 /home/leoanardo/Desktop/downloader/manejadorPool.h
 
-1410300433 source:/home/leoanardo/Desktop/downloader/manejadorPool.c
+1410365185 source:/home/leoanardo/Desktop/downloader/manejadorPool.c
 	<stdio.h>
 	<string.h>
 	<pthread.h>
 	"socket.h"
 	"manejadorArchivos.h"
-	"manejadorCache.h"
+	"Cache.h"
 
 1410142462 /home/leoanardo/Desktop/downloader/manejadorCache.h
 
-1410300509 source:/home/leoanardo/Desktop/downloader/manejadorCache.c
+1410360213 source:/home/leoanardo/Desktop/downloader/manejadorCache.c
 	<stdio.h>
 	<string.h>
 	<pthread.h>
 
 1410297319 source:/home/leoanardo/Desktop/downloader/strings.c
+
+1410366586 source:/home/leoanardo/Desktop/downloader/Cache.c
+	<stdio.h>
+	<string.h>
+	<pthread.h>
+
+1410142462 /home/leoanardo/Desktop/downloader/Cache.h
+
+1410366135 /home/leoanardo/Desktop/downloader/manejadorConexiones.h
+
+1410365962 source:/home/leoanardo/Desktop/downloader/manejadorConexiones.c
+	<stdio.h>
+	<string.h>
+	<pthread.h>
+	"socket.h"
+	"manejadorArchivos.h"
+	"Cache.h"
+
+1410369510 source:/home/leoanardo/Desktop/downloader/pool.c
+	<stdio.h>
+	<string.h>
+	<pthread.h>
 
