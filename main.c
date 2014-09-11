@@ -15,8 +15,7 @@
 
 
        conexiones_Inicia ();
-       sleep (10);
-       //archivos_Inicia ();
+       archivos_Inicia ();
 
 
         // Espera a que los hilos lectores finalicen

@@ -2,12 +2,12 @@
 <CodeBlocks_project_file>
 	<FileVersion major="1" minor="6" />
 	<Project>
-		<Option title="downloader" />
+		<Option title="dowloader" />
 		<Option pch_mode="2" />
 		<Option compiler="gcc" />
 		<Build>
 			<Target title="Debug">
-				<Option output="bin/Debug/downloader" prefix_auto="1" extension_auto="1" />
+				<Option output="bin/Debug/dowloader" prefix_auto="1" extension_auto="1" />
 				<Option object_output="obj/Debug/" />
 				<Option type="1" />
 				<Option compiler="gcc" />
@@ -16,7 +16,7 @@
 				</Compiler>
 			</Target>
 			<Target title="Release">
-				<Option output="bin/Release/downloader" prefix_auto="1" extension_auto="1" />
+				<Option output="bin/Release/dowloader" prefix_auto="1" extension_auto="1" />
 				<Option object_output="obj/Release/" />
 				<Option type="1" />
 				<Option compiler="gcc" />
@@ -31,24 +31,26 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
-		<Unit filename="htmlRequest.c">
+		<Unit filename="Cache.c">
 			<Option compilerVar="CC" />
 		</Unit>
+		<Unit filename="Cache.h" />
+		<Unit filename="README.md" />
 		<Unit filename="main.c">
 			<Option compilerVar="CC" />
 		</Unit>
+		<Unit filename="manejadorArchivos" />
 		<Unit filename="manejadorArchivos.c">
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="manejadorArchivos.h" />
-		<Unit filename="manejadorCache.c">
+		<Unit filename="manejadorConexiones.c">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="manejadorCache.h" />
-		<Unit filename="manejadorPool.c">
+		<Unit filename="manejadorConexiones.h" />
+		<Unit filename="pool.c">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="manejadorPool.h" />
 		<Unit filename="socket.c">
 			<Option compilerVar="CC" />
 		</Unit>

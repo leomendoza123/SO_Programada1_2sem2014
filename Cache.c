@@ -54,14 +54,13 @@
 
 
 
+
     }
 
         char * cache_get (int index)
 
     {
-
             return cache[index];
-
 
     }
     char * cacheNombres_get (int index)

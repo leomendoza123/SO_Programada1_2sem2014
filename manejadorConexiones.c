@@ -1,4 +1,4 @@
-    #define CANTIDAD_HILOS_LECTORES 50
+    #define CANTIDAD_HILOS_LECTORES 1
     #define CANTIDAD_ESPACIONS_POOL 100
 
     #include <stdio.h>
