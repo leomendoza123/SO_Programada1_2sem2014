@@ -1,4 +1,4 @@
-    /*#define TAMANOPOOL 100
+#define TAMANOPOOL 100
 
 
     #include <stdio.h>
@@ -12,24 +12,27 @@
     struct Poolstruct {
         char *pool [TAMANOPOOL];
         int poolTop;
-    } pool;
+    } ;
 
-    int pool_add (struct pool pool_stc, char * URL)
+    int pool_add (struct Poolstruct pool_stc, char * URL)
     {
-        pool_stc[pool] = URL;
+        int index = pool_stc.poolTop;
+        pool_stc.pool[index] = URL;
         pool_stc.poolTop ++;
 
     }
-    char * pool_get (pool *pool_stc, int index)
+    char * pool_get (struct Poolstruct pool_stc, int index)
     {
-        return pool_stc.pool[index];
+        char * poolContent;
+        poolContent =  pool_stc.pool[index];
+        return poolContent;
     }
-    int cache_size (pool *pool_stc)
+    int pool_size (struct Poolstruct pool_stc)
 
     {
         return pool_stc.poolTop;
 
     }
 
-*/
+
 
