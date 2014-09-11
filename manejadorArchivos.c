@@ -79,7 +79,7 @@
 
 int escrbirArchivo(char * contenido, char *url)
     {
-        printf(contenido);
-        printf(url);
+       // printf(contenido);
+        printf(">>>>>>>>>> Se guarda %d ", url);
    }
 

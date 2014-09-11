@@ -1,16 +1,17 @@
 # depslib dependency file v1.0
-1410443275 source:/home/leoanardo/Desktop/downloader/Cache.c
+1410452375 source:/home/leoanardo/Desktop/downloader/Cache.c
 	<stdio.h>
 	<string.h>
 	<pthread.h>
 
-1410442859 source:/home/leoanardo/Desktop/downloader/main.c
+1410459013 source:/home/leoanardo/Desktop/downloader/main.c
 	<stdio.h>
 	<string.h>
 	<pthread.h>
 	"socket.h"
 	"manejadorArchivos.h"
 	"manejadorConexiones.h"
+	"balanceadorCarga.h"
 
 1410128169 /home/leoanardo/Desktop/downloader/socket.h
 
@@ -18,22 +19,24 @@
 
 1410366135 /home/leoanardo/Desktop/downloader/manejadorConexiones.h
 
-1410442702 source:/home/leoanardo/Desktop/downloader/manejadorConexiones.c
+1410460489 source:/home/leoanardo/Desktop/downloader/manejadorConexiones.c
 	<stdio.h>
 	<string.h>
 	<pthread.h>
 	"socket.h"
-	"manejadorArchivos.h"
 	"Cache.h"
+	"pool.h"
+	"listaPool.h"
 
 1410444200 /home/leoanardo/Desktop/downloader/Cache.h
 
-1410445381 source:/home/leoanardo/Desktop/downloader/pool.c
+1410456187 source:/home/leoanardo/Desktop/downloader/pool.c
 	<stdio.h>
 	<string.h>
 	<pthread.h>
+	"pool.h"
 
-1410296312 source:/home/leoanardo/Desktop/downloader/socket.c
+1410459790 source:/home/leoanardo/Desktop/downloader/socket.c
 	<stdio.h>
 	<sys/socket.h>
 	<arpa/inet.h>
@@ -42,11 +45,41 @@
 	<string.h>
 	"socket.h"
 
-1410444236 source:/home/leoanardo/Desktop/downloader/manejadorArchivos.c
+1410460661 source:/home/leoanardo/Desktop/downloader/manejadorArchivos.c
 	<stdio.h>
 	<string.h>
 	<pthread.h>
 	"socket.h"
 	"manejadorArchivos.h"
 	"Cache.h"
+
+1410447759 source:/home/leoanardo/Desktop/downloader/manejadorPool.c
+	<stdio.h>
+	<string.h>
+	<pthread.h>
+	"pool.h"
+
+1410460336 /home/leoanardo/Desktop/downloader/pool.h
+
+1410446986 /home/leoanardo/Desktop/downloader/manejadorPool.c
+	<stdio.h>
+	<string.h>
+	<pthread.h>
+	"pool.h"
+
+1410460429 source:/home/leoanardo/Desktop/downloader/listaPool.c
+	<stdio.h>
+	<string.h>
+	<pthread.h>
+	"pool.h"
+
+1410457619 /home/leoanardo/Desktop/downloader/listaPool.h
+
+1410459568 source:/home/leoanardo/Desktop/downloader/balanceadorCarga.c
+	<stdio.h>
+	<string.h>
+	"listaPool.h"
+	"pool.h"
+
+1410453228 /home/leoanardo/Desktop/downloader/balanceadorCarga.h
 

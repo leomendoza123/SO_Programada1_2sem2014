@@ -1,14 +1,16 @@
-    #define CANTIDAD_HILOS_LECTORES 1
+    #define CANTIDAD_HILOS_LECTORES 5
     #define CANTIDAD_ESPACIONS_POOL 100
 
     #include <stdio.h>
     #include <string.h>
     #include <pthread.h>
     #include "socket.h"
-    #include "manejadorArchivos.h"
     #include "Cache.h"
+    #include "pool.h"
+    #include "listaPool.h"
 
 
+    void *hiloGetWEB(void *);
     void *hiloGetWEB(void *);
     int conexiones_add (char *url);
 
@@ -68,22 +70,23 @@
 
     void *hiloGetWEB(void *dummyPtr)
         {
+        struct Poolstruct *PoolstructObj = listaPool_newPool();
 
         while (1){
             /// GUARDA LA ACTUAL POSICION DEL POOL Y verifica si hay que revisarla
+            // TODO quitar los mutex pues ahora los pools funcionan individualmente
             pthread_mutex_lock( &mutexCounter );
             int poolCounterActual= -1;
-            if (poolTop>poolCounter){
-                poolCounterActual= poolCounter;
-                poolCounter++;
-                printf("~~~~~Hilo: %ld Elemento %d de %d en POOL\n", pthread_self(), poolCounterActual, poolTop);
+            if (PoolstructObj->poolTop  >  PoolstructObj->poolCounter){
+                poolCounterActual= PoolstructObj->poolCounter;
+                PoolstructObj->poolCounter++;
+                printf("~~~~~Hilo: %ld Elemento %d de %d en POOL\n", PoolstructObj->id, poolCounterActual, PoolstructObj->poolTop);
 
             }
             else{
-                printf("~~~~~Hilo: %ld Pool vacio \n", pthread_self());
+                printf("~~~~~Hilo: %ld Pool vacio \n", PoolstructObj->id);
             }
             pthread_mutex_unlock( &mutexCounter );
-
 
 
 
@@ -91,9 +94,11 @@
             /// PROCESA LA POSICION DEL POOL SOLICITADA Y GUARDA EN CACHE
             if (poolCounterActual!=-1){
                                char * html;
-                               html = socket_getHtml (pool[poolCounterActual], "/");
-                               cache_add (html, pool[poolCounterActual]);
+                               html = socket_getHtml (PoolstructObj->pool[poolCounterActual], "/");
+                               cache_add (html, PoolstructObj->pool[poolCounterActual]);
                                memset(html, 0, sizeof(char ) * strlen (html));
+                               printf("~~~~~Hilo: %ld Finaliza con  %d v\n", PoolstructObj->id, pool[poolCounterActual]);
+
                                //free (html);
              }
 

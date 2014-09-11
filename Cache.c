@@ -42,18 +42,10 @@
 
             //Copia el nombre del archivo
             nombretemp = strcat(nombretemp,nombre );
-
-
             // Guarde el contenido en cache
             cache[cacheTopActual] = archivotemp;
             // Guarde el nombre en cacheNombre
             cacheNombres[cacheTopActual] = nombretemp;
-
-
-
-
-
-
 
     }
 
@@ -67,7 +59,7 @@
 
     {
 
-            return cacheNombres[index];
+        return cacheNombres[index];
 
 
     }

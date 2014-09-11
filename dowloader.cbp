@@ -36,6 +36,14 @@
 		</Unit>
 		<Unit filename="Cache.h" />
 		<Unit filename="README.md" />
+		<Unit filename="balanceadorCarga.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="balanceadorCarga.h" />
+		<Unit filename="listaPool.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="listaPool.h" />
 		<Unit filename="main.c">
 			<Option compilerVar="CC" />
 		</Unit>
@@ -51,6 +59,7 @@
 		<Unit filename="pool.c">
 			<Option compilerVar="CC" />
 		</Unit>
+		<Unit filename="pool.h" />
 		<Unit filename="socket.c">
 			<Option compilerVar="CC" />
 		</Unit>
