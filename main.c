@@ -8,13 +8,22 @@
 
 
 
-    int main(int argc, char **argv)
+    int main(int argc, char** argv)
     {
-       conexiones_Inicia ();
+
+
+        char *url;
+        char *host;
+
+        if(argc == 1 && argv[1])
+        {
+            url = argv[1];
+            balanceador_AgregaURL(url);
+        }
 
        sleep (1);
 
-       balanceador_AgregaURL("google.com");
+
         balanceador_AgregaURL("acme.com");
         balanceador_AgregaURL("kli.org");
        balanceador_AgregaURL("home.mcom.com");
