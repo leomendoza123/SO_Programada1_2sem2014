@@ -80,11 +80,11 @@
             if (PoolstructObj->poolTop  >  PoolstructObj->poolCounter){
                 poolCounterActual= PoolstructObj->poolCounter;
                 PoolstructObj->poolCounter++;
-                printf("~~~~~Hilo: %ld Elemento %d de %d en POOL\n", PoolstructObj->id, poolCounterActual, PoolstructObj->poolTop);
+                printf("(C)~~~~~Hilo: %ld Elemento %d de %d  (%s )\n", PoolstructObj->id, poolCounterActual, PoolstructObj->poolTop, PoolstructObj->pool[poolCounterActual]);
 
             }
             else{
-                printf("~~~~~Hilo: %ld Pool vacio \n", PoolstructObj->id);
+                printf("(C)~~~~~Hilo: %ld Pool sin pendientes \n", PoolstructObj->id);
             }
             pthread_mutex_unlock( &mutexCounter );
 
@@ -97,7 +97,7 @@
                                html = socket_getHtml (PoolstructObj->pool[poolCounterActual], "/");
                                cache_add (html, PoolstructObj->pool[poolCounterActual]);
                                memset(html, 0, sizeof(char ) * strlen (html));
-                               printf("~~~~~Hilo: %ld Finaliza con  %d v\n", PoolstructObj->id, pool[poolCounterActual]);
+                               printf("(C)~~~~~Hilo: %ld Finaliza \n", PoolstructObj->id, PoolstructObj->pool[poolCounterActual]);
 
                                //free (html);
              }

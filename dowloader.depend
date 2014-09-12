@@ -4,7 +4,7 @@
 	<string.h>
 	<pthread.h>
 
-1410459013 source:/home/leoanardo/Desktop/downloader/main.c
+1410538689 source:/home/leoanardo/Desktop/downloader/main.c
 	<stdio.h>
 	<string.h>
 	<pthread.h>
@@ -19,7 +19,7 @@
 
 1410366135 /home/leoanardo/Desktop/downloader/manejadorConexiones.h
 
-1410460489 source:/home/leoanardo/Desktop/downloader/manejadorConexiones.c
+1410536975 source:/home/leoanardo/Desktop/downloader/manejadorConexiones.c
 	<stdio.h>
 	<string.h>
 	<pthread.h>
@@ -36,7 +36,7 @@
 	<pthread.h>
 	"pool.h"
 
-1410459790 source:/home/leoanardo/Desktop/downloader/socket.c
+1410536564 source:/home/leoanardo/Desktop/downloader/socket.c
 	<stdio.h>
 	<sys/socket.h>
 	<arpa/inet.h>
@@ -45,7 +45,7 @@
 	<string.h>
 	"socket.h"
 
-1410460661 source:/home/leoanardo/Desktop/downloader/manejadorArchivos.c
+1410537088 source:/home/leoanardo/Desktop/downloader/manejadorArchivos.c
 	<stdio.h>
 	<string.h>
 	<pthread.h>
@@ -75,11 +75,17 @@
 
 1410457619 /home/leoanardo/Desktop/downloader/listaPool.h
 
-1410459568 source:/home/leoanardo/Desktop/downloader/balanceadorCarga.c
+1410535797 source:/home/leoanardo/Desktop/downloader/balanceadorCarga.c
 	<stdio.h>
 	<string.h>
 	"listaPool.h"
 	"pool.h"
 
 1410453228 /home/leoanardo/Desktop/downloader/balanceadorCarga.h
+
+1410449321 source:/home/leoanardo/Desktop/downloader/listaPools.c
+	<stdio.h>
+	<string.h>
+	<pthread.h>
+	"pool.h"
 

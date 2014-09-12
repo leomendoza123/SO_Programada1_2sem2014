@@ -11,6 +11,7 @@
     int archivos_Inicia();
     int escrbirArchivo(char * contenido, char *url);
     void *hiloWriteWEB(void *dummyPtr);
+    int numeroHilos = 0;
 
     // Manejo de hilos de escritura
     pthread_t thread_id [CANTIDAD_HILOS_ESCRITORES];
@@ -46,23 +47,28 @@
 
     void *hiloWriteWEB(void *dummyPtr)
         {
+        int idhilo = numeroHilos++;
         while (1){
             /// Solicita archivo por escribir
             pthread_mutex_lock( &mutexEscritura );
             if (cache_size()>counterCache){
 
-                printf("----- Hilo numero: %ld Elemento %d de %d en CACHE\n", pthread_self(), counterCache, cache_size());
                 char * archivo = cache_get(counterCache);
                 char * paginaActual  = cacheNombres_get(counterCache);
+                printf("(A)----- Hilo numero: %ld Elemento %d de %d (%s) \n", idhilo, counterCache, cache_size(), paginaActual);
+
                 counterCache++;
 
 
                  /// Guarda el archivo
                 escrbirArchivo(archivo, paginaActual);
+                printf("(A)----- Hilo numero: %ld finaliza (%s)\n", idhilo, paginaActual);
+
+
 
                 }
             else{
-                     printf("----- Hilo numero: %ld Cache vacio \n", pthread_self());
+                     printf("(A)----- Hilo numero: %ld Cache vacio \n", idhilo);
                 }
             pthread_mutex_unlock( &mutexEscritura );
 
@@ -79,7 +85,17 @@
 
 int escrbirArchivo(char * contenido, char *url)
     {
-       // printf(contenido);
-        printf(">>>>>>>>>> Se guarda %d ", url);
+
+        FILE *archivo;
+
+        if((archivo = fopen(url,"a"))==NULL)
+        {
+            printf("No se puede escrbir el archivo \n");
+            exit(1);
+        }
+        fprintf(archivo,contenido);
+        fclose(archivo);
+        return 1;
+
    }
 

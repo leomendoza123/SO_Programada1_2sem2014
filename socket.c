@@ -23,7 +23,7 @@ host = argv;
 page = PAGE;
 sock = create_tcp_socket();
 ip = get_ip(host);
-fprintf(stderr, "IP is %s\n", ip);
+//fprintf(stderr, "IP is %s\n", ip);
 remote = (struct sockaddr_in *)malloc(sizeof(struct sockaddr_in *));
 remote->sin_family = AF_INET;
 tmpres = inet_pton(AF_INET, ip, (void *)(&(remote->sin_addr.s_addr)));
@@ -120,7 +120,7 @@ char *getpage = page;
 char *tpl = "GET /%s HTTP/1.0\r\nHost: %s\r\nUser-Agent: %s\r\n\r\n";
 if(getpage[0] == '/'){
 getpage = getpage + 1;
-fprintf(stderr,"Removing leading \"/\", converting %s to %s\n", page, getpage);
+//fprintf(stderr,"Removing leading \"/\", converting %s to %s\n", page, getpage);
 }
 // -5 is to consider the %s %s %s in tpl and the ending \0
 query = (char *)malloc(strlen(host)+strlen(getpage)+strlen(USERAGENT)+strlen(tpl)-5);
