@@ -87,8 +87,12 @@ int escrbirArchivo(char * contenido, char *url)
     {
 
         FILE *archivo;
+        char* html = ".html";
+        char* arch;
 
-        if((archivo = fopen(url,"a"))==NULL)
+        arch = strcat(url, html);
+
+        if((archivo = fopen(arch,"a"))==NULL)
         {
             printf("No se puede escrbir el archivo \n");
             exit(1);

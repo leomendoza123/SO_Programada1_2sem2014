@@ -8,22 +8,13 @@
 
 
 
-    int main(int argc, char** argv)
+    int main(int argc, char **argv)
     {
-
-
-        char *url;
-        char *host;
-
-        if(argc == 1 && argv[1])
-        {
-            url = argv[1];
-            balanceador_AgregaURL(url);
-        }
+       conexiones_Inicia ();
 
        sleep (1);
 
-
+       balanceador_AgregaURL("google.com");
         balanceador_AgregaURL("acme.com");
         balanceador_AgregaURL("kli.org");
        balanceador_AgregaURL("home.mcom.com");
@@ -33,6 +24,11 @@
 
         archivos_Inicia ();
 
+        balanceador_AgregaURL("gmail.com");
+        balanceador_AgregaURL("twitter.com");
+        balanceador_AgregaURL("github.org");
+        balanceador_AgregaURL("yahoo.com");
+        balanceador_AgregaURL("hotmail.com");
 
         sleep (5);
         balanceador_AgregaURL("arngren.net");
@@ -42,11 +38,9 @@
 
          sleep (5);
 
-        balanceador_AgregaURL("agroweb.com");
+          balanceador_AgregaURL("agroweb.com");
         balanceador_AgregaURL("dpgraph.com");
         balanceador_AgregaURL("westnet.com");
-
-
 
 
 
