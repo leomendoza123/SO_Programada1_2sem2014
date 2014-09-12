@@ -1,5 +1,6 @@
 >>>>> Descripcion 
-Este proyecto, se conecta a uno o muchos URLS y desarga el html.
+
+Este proyecto, se conecta a uno o muchos URLS y descarga el html.
 Usa K hilos lectores, cada uno con un pool (lista de urls)
 Usa K escritores a disco duro
 Estos hilos se comunican por medio de un CACHE
@@ -11,7 +12,7 @@ Los URLs se agregan a los pools de los hilos lectores por medio de un balanceado
 El codigo viene con los archivos de proyecto de Code::Blocks por lo que es más facil correr el codigo con este programa. 
 
 
->>>>>DEFINICIÓN DE ESTRUCTURAS DE DATOS
+>>>>> DEFINICIÓN DE ESTRUCTURAS DE DATOS
 
 >>Sockets.c
     
@@ -54,7 +55,7 @@ Maneja la creación de diferentes hilos y los liga con un pool propio. Estos hil
 
 
 
->>>>>Referecias
+>>>>> Referecias
 
 Uso de punteros
 http://stackoverflow.com/questions/2094666/pointers-in-c-when-to-use-the-ampersand-and-the-asterisk
@@ -69,7 +70,7 @@ http://www.diffen.com/difference/Calloc_vs_Malloc
 Uso de structs como argumentos, entre archivos
 http://stackoverflow.com/questions/6316987/should-struct-definitions-go-in-h-or-c-file
 
->>>>>> Logrado: 
+>>>>> Logrado: 
 
     El manejo de escritura de archivos
     El manejo de hilos (de connexion)
@@ -90,7 +91,7 @@ http://stackoverflow.com/questions/6316987/should-struct-definitions-go-in-h-or-
 
 >>>>>> TODO
 
-Revisar el los sockets
+Revisar el uso de  sockets a los servidores, para poder conectar con todo tipo de sitios web. 
 
 
 
